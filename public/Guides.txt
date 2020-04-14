@@ -1,0 +1,29 @@
+~ Create Model
+php artisan make:model Tag -m
+
+~ migration
+php artisan migrate:fresh
+
+~ create temporary values
+php artisan tinker
+factory(App\User::class)->create();
+
+~ Edit Shortcut Keys in Mysql Work Bench
+1. goto C:\Program Files\MySQL\MySQL Workbench 8.0 CE\data
+2. open main_menu.xml
+3. search specific actions
+4. change the value inside <value type="string" key="shortcut"></value>
+ ex. <value type="string" key="shortcut">Modifier+Q</value>
+   Modifier+Q to Modifier+E
+
+~ Create Factory
+php artisan make:factory ArticleFactory -m "App\Article"
+  ArticleFactory - name of the factory file
+  -m - syntax to integrate the model
+  "App\Article" - The name of the class or model
+
+~ Generate 5 Article with the same title
+php artisan tinker
+factory(App\Article::class, 5)->create(['title'=>'title here']) 
+
+factory(<class_name>::class,<count>[Optional])->create([<parameter>])
